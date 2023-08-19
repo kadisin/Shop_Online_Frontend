@@ -1,10 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css']
 })
-export class ProductsComponent {
+export class ProductsComponent implements OnInit {
+  @Input() view: 'grid' | 'list' = 'list';
+
+  constructor() {}
+
+  ngOnInit(): void {
+    
+  }
 
 }
