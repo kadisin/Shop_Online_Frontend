@@ -3,3 +3,15 @@
 body {
     font-family: 'Poppins', sans-serif;
 }
+
+.my-container {
+    max-width: 1500px;
+}
+
+.my-shadow {
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
+}
+
+.my-rounded-corner {
+    border-radius: 1rem;
+}

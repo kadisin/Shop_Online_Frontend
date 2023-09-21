@@ -6,8 +6,8 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
-  @Input() view: 'grid' | 'list' = 'list';
-
+  view: 'grid' | 'list' = 'list';
+  sortby: 'default' | 'htl' | 'lth' = 'default';
   constructor() {}
 
   ngOnInit(): void {

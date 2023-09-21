@@ -12,6 +12,8 @@ import { MatButtonModule  } from '@angular/material/button';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { WelcomeComponent } from './Components/welcome/welcome.component';
 import { ProductsComponent } from './Components/products/products.component';
+import { SuggestedProductsComponent } from './Components/suggested-products/suggested-products.component';
+import { ProductComponent } from './Components/product/product.component';
 
 
 @NgModule({
@@ -20,7 +22,9 @@ import { ProductsComponent } from './Components/products/products.component';
     HomeComponent,
     LoginComponent,
     WelcomeComponent,
-    ProductsComponent
+    ProductsComponent,
+    SuggestedProductsComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
