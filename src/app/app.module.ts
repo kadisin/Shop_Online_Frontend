@@ -14,6 +14,9 @@ import { WelcomeComponent } from './Components/welcome/welcome.component';
 import { ProductsComponent } from './Components/products/products.component';
 import { SuggestedProductsComponent } from './Components/suggested-products/suggested-products.component';
 import { ProductComponent } from './Components/product/product.component';
+import { ProductDetailsComponent } from './Components/product-details/product-details.component';
+import { CartComponent } from './Components/cart/cart.component';
+import { OrderComponent } from './Components/order/order.component';
 
 
 @NgModule({
@@ -24,7 +27,10 @@ import { ProductComponent } from './Components/product/product.component';
     WelcomeComponent,
     ProductsComponent,
     SuggestedProductsComponent,
-    ProductComponent
+    ProductComponent,
+    ProductDetailsComponent,
+    CartComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,
