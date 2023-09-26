@@ -17,6 +17,7 @@ import { ProductComponent } from './Components/product/product.component';
 import { ProductDetailsComponent } from './Components/product-details/product-details.component';
 import { CartComponent } from './Components/cart/cart.component';
 import { OrderComponent } from './Components/order/order.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { OrderComponent } from './Components/order/order.component';
     BrowserAnimationsModule,
     MatButtonModule,
     MatSlideToggleModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
