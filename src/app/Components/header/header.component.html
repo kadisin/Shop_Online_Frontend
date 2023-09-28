@@ -30,9 +30,9 @@
         </div>
         <div class="btn-group btn-group-lg me-3" role="group">
             <button type="button" class="btn btn-outline-light" data-bs-toggle="modal"
-                data-bs-target="#generalmodal">Login</button>
+                data-bs-target="#generalmodal" (click)="openModal('login')">Login</button>
             <button type="button" class="btn btn-outline-light" data-bs-toggle="modal"
-            data-bs-target="#generalmodal">Register</button>
+            data-bs-target="#generalmodal" (click)="openModal('register')">Register</button>
             <button type="button" class="btn btn-outline-light">Account</button>
             <button type="button" class="btn btn-outline-light" routerLink="/cart">Cart</button>
             <button type="button" class="btn btn-outline-light" routerLink="/order">Orders</button>
@@ -50,7 +50,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">
-                <app-register></app-register>
+                <ng-container #container></ng-container>
             </div>
         </div>
     </div>
