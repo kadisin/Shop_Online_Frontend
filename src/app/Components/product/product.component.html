@@ -5,24 +5,25 @@
         </div>   
         
         <div class="overflow-hidden d-flex justify-content-center align-items-center">
-            <img src="https://bsimg.nl/images/asus-rog-phone-6-12gb-256gb-zwart_1.jpg/PE-E5RTQI9JFO2N7KDa1knyirLU%3D/fit-in/0x0/filters%3Aupscale%28%29" alt="Brak linku do img" class="card-img-top"
-                OpenProductDetails [productId]="1">
+            <img src="../../../assets/Images/{{product.productCategory.subCategory}}/{{product.id}}/1.jpg" alt="Brak linku do img" class="card-img-top"
+                OpenProductDetails [productId]="product.id">
         </div>
 
         <div class="card-body">
-            <h5 class="card-title title"> Title </h5>
-            <h6 class="card-subtitle my-2 text-primary"> 12 products are available </h6>
-            <p class="card-text description"> Description </p>
+            <h5 class="card-title title"> {{product.title}} </h5>
+            <h6 class="card-subtitle my-2 text-primary"> {{product.quantity}} products are available </h6>
+            <p class="card-text description"> {{product.description}} </p>
         </div>
 
         <div class="card-body">
-            <h5 class="card-title text-success"> Final Price
-                <span class="text-primary"> -20% 
+            <h5 class="card-title text-success">
+                {{utilityService.applyDiscount(product.price, product.offer.discount)}}
+                <span class="text-primary"> -{{product.offer.discount}}% 
 
                 </span>
             </h5>
             <h6 class="card-subtitle text-danger text-decoration-line-through">
-                Original Price
+                {{product.price}}
             </h6>
         </div>
 
@@ -37,8 +38,8 @@
     <div class="card">
         <div class="row g-0">
             <div class="col-md-4 overflow-hidden d-flex justify-content-center align-items-center">
-                <img src="https://bsimg.nl/images/asus-rog-phone-6-12gb-256gb-zwart_1.jpg/PE-E5RTQI9JFO2N7KDa1knyirLU%3D/fit-in/0x0/filters%3Aupscale%28%29" class="img-fluid rounded-start" alt="Product image"
-                    OpenProductDetails [productId]="1">
+                <img src="../../../assets/Images/{{product.productCategory.subCategory}}/{{product.id}}/1.jpg" class="img-fluid rounded-start" alt="Product image"
+                    OpenProductDetails [productId]="product.id">
 
             </div>
             <div class="col d-flex flex-column">
@@ -75,8 +76,8 @@
         <div class="row g-0">
 
             <div class="col-4 overflow-hidden d-flex justify-content-center align-items-center">
-                <img src="../../../assets/Images/Mobile/1.jpg" class="img-fluid rounded-start"
-                alt="Product Image" OpenProductDetails [productId]="1">
+                <img src="../../../assets/Images/{{product.productCategory.subCategory}}/{{product.id}}/1.jpg" class="img-fluid rounded-start"
+                alt="Product Image" OpenProductDetails [productId]="product.id">
             </div>
             <div class="col-8">
                 <div class="card-body">
@@ -101,7 +102,7 @@
     <div class="card text-center">
 
         <div class="overflow-hidden d-flex justify-content-center align-items-center">
-            <img src="../../../assets/Images/Mobile/1.jpg" alt=""
+            <img src="../../../assets/Images/{{product.productCategory.subCategory}}/{{product.id}}/1.jpg" alt=""
                  class="card-img-top" OpenProductDetails [productId]="1">
         </div>
 

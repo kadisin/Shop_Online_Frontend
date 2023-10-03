@@ -17,7 +17,7 @@
                         <li *ngFor="let subcategory of item.subcategories" [style.cursor]="'pointer'">
                             <a class="dropdown-item" 
                             OpenProducts [category]="{id: 0, 'category': item.category,
-                                'subcategory': subcategory}">
+                                'subCategory': subcategory}">
                                 {{subcategory | titlecase}}
                             </a>
                         </li>
