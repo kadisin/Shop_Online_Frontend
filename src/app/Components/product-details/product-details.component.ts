@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { NavigationService } from 'src/app/Services/navigation.service';
+import { UtilityService } from 'src/app/Services/utility.service';
+import { Product } from '../models/models';
 
 @Component({
   selector: 'app-product-details',
@@ -7,9 +11,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductDetailsComponent implements OnInit {
   imageIndex: number= 1;
-  constructor() {}
+  product!: Product;
+  
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private navigationService: NavigationService,
+    public utilityService: UtilityService
+  ) {}
 
   ngOnInit(): void {
-     
+     this.activatedRoute.queryParams.subscribe((params: any) => {
+      let id = params.id;
+      this.navigationService.getProduct(id).subscribe((res: any) => {
+        this.product = res;
+      });
+     });
   }
 }

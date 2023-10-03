@@ -48,18 +48,18 @@
                 </div>
 
                 <div class="card-body">
-                    <h5 class="card-title title"> Title </h5>
-                    <p class="card-text description"> Description </p>
-                    <h6 class="card-subtitle mb-3 text-primary"> 12 products are available </h6>
+                    <h4 class="card-title title"> {{product.title}} </h4>
+                    <p class="card-text description"> {{product.description}} </p>
+                    <h6 class="card-subtitle mb-3 text-primary"> {{product.quantity}} products are available </h6>
                 </div>
 
                 <div class="card-body">
                     <h4 class="card-title text-muted"> Pricing </h4>
                     <h2 class="card-title text-success">
-                        Final Price
-                        <span class="text-primary"> -20% </span>
+                        {{utilityService.applyDiscount(product.price, product.offer.discount)}}
+                        <span class="text-primary"> -{{product.offer.discount}}% </span>
                     </h2>
-                    <h5 class="card-subtitle text-danger text-decoration-line-through"> Original Price </h5>
+                    <h5 class="card-subtitle text-danger text-decoration-line-through"> {{product.price}} </h5>
                 </div>
 
                 <div class="card-footer text-muted d-grid gap-2">

@@ -4,19 +4,19 @@
         <!-- Profile Image of Product -->
         <div class="col-4 p-4">
             <div class="d-flex justify-content-center align-items-center">
-                <img src="../../../assets/Images/Mobile/{{imageIndex}}.jpg" alt="" class="w-100">
+                <img src="../../../assets/Images/{{product.productCategory.subCategory}}//{{product.id}}//{{imageIndex}}.jpg" alt="" class="w-100">
             </div>
 
             <div class="image-thumbnails mt-4 d-flex justify-content-between align-items-center">
-                <img src="../../../assets/Images/Mobile/1.jpg" alt="Thumbnail Image"
+                <img src="../../../assets/Images/{{product.productCategory.subCategory}}//{{product.id}}/1.jpg" alt="Thumbnail Image"
                 (click)="imageIndex = 1">
-                <img src="../../../assets/Images/Mobile/2.jpg" alt="Thumbnail Image"
+                <img src="../../../assets/Images/{{product.productCategory.subCategory}}//{{product.id}}/2.jpg" alt="Thumbnail Image"
                 (click)="imageIndex = 2">
-                <img src="../../../assets/Images/Mobile/3.jpg" alt="Thumbnail Image"
+                <img src="../../../assets/Images/{{product.productCategory.subCategory}}//{{product.id}}/3.jpg" alt="Thumbnail Image"
                 (click)="imageIndex = 3">
-                <img src="../../../assets/Images/Mobile/4.jpg" alt="Thumbnail Image"
+                <img src="../../../assets/Images/{{product.productCategory.subCategory}}//{{product.id}}/4.jpg" alt="Thumbnail Image"
                 (click)="imageIndex = 4">
-                <img src="../../../assets/Images/Mobile/5.jpg" alt="Thumbnail Image"
+                <img src="../../../assets/Images/{{product.productCategory.subCategory}}//{{product.id}}/5.jpg" alt="Thumbnail Image"
                 (click)="imageIndex = 5">
             </div>
         </div>
@@ -25,20 +25,20 @@
         <div class="col-8 p-4">
             <div class="card">
                 <div class="card-header">
-                    <h2> Header </h2>
+                    <h2>{{product.title | titlecase}}</h2>
                 </div>
 
                 <div class="card-body">
-                    <h1 class="card-title text-success"> Final Price
-                        <span class="text-primary">-20%</span>
+                    <h1 class="card-title text-success">{{utilityService.applyDiscount(product.price, product.offer.discount)}}
+                        <span class="text-primary">-{{product.offer.discount}}%</span>
                     </h1>
                     <h4 class="card-subtitle text-danger text-decoration-line-through">
-                        Original Price
+                        {{product.price}}
                     </h4>
                 </div>
 
                 <div class="card-body">
-                    <h6 class="card-subtitle my-2 text-primary"> 11 products are available.</h6>
+                    <h6 class="card-subtitle my-2 text-primary"> {{product.quantity}} products are available.</h6>
                     <div class="d-grid gap-2">
                         <button type="button" class="btn btn-outline-success">Add to Cart</button>
                     </div>
@@ -47,7 +47,7 @@
                     <h5 class="card-text">Description</h5>
                     <ul class="list-group">
                         <li class="list-group-item list-group-item-action" 
-                        *ngFor="let item of [1,1,1,1]">
+                        *ngFor="let item of product.description.split('. ')">
                         {{item}}
                     </li>
                     </ul>
@@ -64,7 +64,7 @@
                 </h3>
 
                 <div class="col-12">
-                    <app-suggested-products></app-suggested-products>
+                    <app-suggested-products [category]="product.productCategory"></app-suggested-products>
                 </div>
             </div>
     </div>

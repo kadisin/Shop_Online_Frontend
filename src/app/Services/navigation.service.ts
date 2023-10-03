@@ -37,4 +37,9 @@ export class NavigationService {
     });
   }
 
+  getProduct(id: number) {
+    let url = this.baseUrl + "GetProduct/" + id;
+    return this.http.get(url);
+  }
+
 }

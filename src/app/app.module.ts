@@ -24,6 +24,7 @@ import { PageNotFoundComponent } from './Components/page-not-found/page-not-foun
 import { OpenProductsDirective } from './Components/directives/open-products.directive';
 import { OpenProductDetailsDirective } from './Components/directives/open-product-details.directive';
 import { RegisterComponent } from './Components/register/register.component';
+import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +51,8 @@ import { RegisterComponent } from './Components/register/register.component';
     MatButtonModule,
     MatSlideToggleModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
