@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { User } from '../models/models';
+import { NavigationService } from 'src/app/Services/navigation.service';
 
 @Component({
   selector: 'app-register',
@@ -9,7 +11,9 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 export class RegisterComponent implements OnInit {
   registerForm!: FormGroup;
   invalidRPWD: boolean = false;
-  constructor(private fb: FormBuilder) {}
+  message = '';
+
+  constructor(private fb: FormBuilder, private navigationService: NavigationService) {}
 
   ngOnInit(): void {
     this.registerForm = this.fb.group({
@@ -30,6 +34,8 @@ export class RegisterComponent implements OnInit {
         ],
       ],
       email: ['', [Validators.required, Validators.email]],
+      address: ['', [Validators.required]],
+      mobile: ['', Validators.required],
       pwd: [
         '',
         [
@@ -42,7 +48,23 @@ export class RegisterComponent implements OnInit {
     })
   }
 
-  register() {}
+  register() {
+    let user: User = {
+      id: 0,
+      firstName: this.FirstName.value,
+      lastName: this.LastName.value,
+      email: this.Email.value,
+      address: this.Address.value,
+      mobile: this.Mobile.value,
+      password: this.PWD.value,
+      createdAt: '',
+      modifiedAt: '',
+    };
+
+    this.navigationService.registerUser(user).subscribe((res: any) => {
+      this.message = res.toString();
+    });
+  }
 //#region Getters
 get FirstName() : FormControl {
   return this.registerForm.get('firstName') as FormControl;
@@ -52,6 +74,12 @@ get LastName() : FormControl {
 }
 get Email() : FormControl {
   return this.registerForm.get('email') as FormControl;
+}
+get Address(): FormControl {
+  return this.registerForm.get("address") as FormControl;
+}
+get Mobile() : FormControl {
+  return this.registerForm.get('mobile') as FormControl;
 }
 get PWD() : FormControl {
   return this.registerForm.get('pwd') as FormControl;

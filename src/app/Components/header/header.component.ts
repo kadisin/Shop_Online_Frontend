@@ -3,6 +3,7 @@ import { Category, NavigationItem } from '../models/models';
 import { LoginComponent } from '../login/login.component';
 import { RegisterComponent } from '../register/register.component';
 import { NavigationService } from 'src/app/Services/navigation.service';
+import { UtilityService } from 'src/app/Services/utility.service';
 
 @Component({
   selector: 'app-header',
@@ -25,7 +26,8 @@ export class HeaderComponent implements OnInit {
     }
   ];
 
-  constructor(private navigationService: NavigationService) {}
+  constructor(private navigationService: NavigationService,
+    public utilityService: UtilityService) {}
 
   ngOnInit(): void {
      // Get Category List

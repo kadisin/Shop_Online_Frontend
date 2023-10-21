@@ -28,7 +28,10 @@
         </div>
 
         <div class="card-footer d-grid gap-2">
-            <button class="btn btn-outline-success" type="button"> Add to Cart </button>
+            <button class="btn btn-outline-success" type="button"
+            [disabled]="!utilityService.isLoggedIn()">
+            Add to Cart
+        <span *ngIf="!utilityService.isLoggedIn()">(Login First)</span></button>
         </div>
 
     </div>
@@ -63,7 +66,10 @@
                 </div>
 
                 <div class="card-footer text-muted d-grid gap-2">
-                    <button class="btn btn-outline-success" type="button"> Add to Cart</button>
+                    <button class="btn btn-outline-success" type="button"
+                    [disabled]="!utilityService.isLoggedIn()">
+                    Add to Cart
+                <span *ngIf="!utilityService.isLoggedIn()">(Login First)</span></button>
                 </div>
             </div>
         </div>

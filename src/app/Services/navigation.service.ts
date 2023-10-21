@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs';
-import { Category } from '../Components/models/models';
+import { Category, User } from '../Components/models/models';
 
 @Injectable({
   providedIn: 'root'
@@ -39,6 +39,40 @@ export class NavigationService {
 
   getProduct(id: number) {
     let url = this.baseUrl + "GetProduct/" + id;
+    return this.http.get(url);
+  }
+
+  registerUser(user: User) {
+    let url = this.baseUrl + "RegisterUser";
+    return this.http.post(url, user, {responseType: 'text'});
+  }
+
+  loginUser(email: string, password: string) {
+    let url = this.baseUrl + "LoginUser";
+    return this.http.post(
+      url,
+      { Email: email, Password: password },
+      { responseType: 'text' }
+    );
+  }
+
+  submitReview(userid: number, productid: number, review: string) {
+    let obj: any = {
+      User: {
+        Id: userid,
+      },
+      Product: {
+        Id: productid,
+      },
+      Value: review,
+    };
+
+    let url = this.baseUrl + "InsertReview";
+    return this.http.post(url, obj, {responseType: 'text'});
+  }
+
+  getAllReviewsOfProduct(productId: number) {
+    let url = this.baseUrl + "GetProductReviews/" + productId;
     return this.http.get(url);
   }
 

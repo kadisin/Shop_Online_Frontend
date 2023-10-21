@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NavigationService } from 'src/app/Services/navigation.service';
 import { UtilityService } from 'src/app/Services/utility.service';
-import { Product } from '../models/models';
+import { Product, Review } from '../models/models';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-product-details',
@@ -12,6 +13,10 @@ import { Product } from '../models/models';
 export class ProductDetailsComponent implements OnInit {
   imageIndex: number= 1;
   product!: Product;
+  reviewControl = new FormControl('');
+  showError = false;
+  reviewSaved = false;
+  otherReviews: Review[] = [];
   
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -24,7 +29,38 @@ export class ProductDetailsComponent implements OnInit {
       let id = params.id;
       this.navigationService.getProduct(id).subscribe((res: any) => {
         this.product = res;
+        this.fetchAllReviews();
       });
      });
+  }
+  submitReview() {
+    let review = this.reviewControl.value;
+    if(review === '' || review === null)
+    {
+      this.showError = true;
+      return;
+    }
+
+    let userid = this.utilityService.getUser().id;
+    let productid = this.product.id;
+
+    this.navigationService
+    .submitReview(userid, productid, review)
+    .subscribe((res: any) => {
+      this.reviewSaved = true;
+      this.fetchAllReviews();
+      this.reviewControl.setValue("");
+    });
+  }
+
+  fetchAllReviews() {
+    this.otherReviews = [];
+    this.navigationService.getAllReviewsOfProduct(this.product.id)
+    .subscribe((res: any) => {
+      for(let review of res) {
+        this.otherReviews.push(review);
+        console.log(review);
+      }
+    });
   }
 }
