@@ -14,6 +14,7 @@ export class HeaderComponent implements OnInit {
   @ViewChild('modalTitle') modalTitle!: ElementRef;
   @ViewChild('container', { read: ViewContainerRef, static: true})
   container!: ViewContainerRef;
+  cartItems: number = 0;
    
   navigationList: NavigationItem[] = [
     {
@@ -47,6 +48,19 @@ export class HeaderComponent implements OnInit {
           });
         }
       }
+    });
+
+    // Cart
+    if(this.utilityService.isLoggedIn()) {
+      this.navigationService
+      .getActiveCartOfUser(this.utilityService.getUser().id)
+      .subscribe((res: any) => {
+        this.cartItems = res.cartItems.length;
+      });
+    }
+
+    this.utilityService.changeCart.subscribe((res: any) => {
+      this.cartItems += parseInt(res);
     });
 
   }

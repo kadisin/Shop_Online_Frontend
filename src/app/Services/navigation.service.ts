@@ -76,4 +76,20 @@ export class NavigationService {
     return this.http.get(url);
   }
 
+  addToCart(userid: number, productid: number) {
+    let url = 
+    this.baseUrl + 'InsertCartItem/' + userid + '/' + productid;
+    return this.http.post(url, null, {responseType: 'text'});
+  }
+
+  getActiveCartOfUser(userid: number) {
+    let url = this.baseUrl + 'GetActiveCartOfUser/' + userid;
+    return this.http.get(url);
+  }
+
+  getAllPreviousCarts(userid: number) {
+    let url = this.baseUrl + "GetAllPreviousCartsOfUser/" + userid;
+    return this.http.get(url);
+  }
+
 }

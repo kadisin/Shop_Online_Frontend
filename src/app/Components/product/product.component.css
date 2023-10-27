@@ -27,7 +27,7 @@ img:hover {
     text-overflow: ellipsis;
 }
 
-.list-view .description {
+.list-view .title {
     height: 50px;
     overflow: hidden;
 }
@@ -36,4 +36,10 @@ img:hover {
     height: 75px;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.cart-item-view .title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }

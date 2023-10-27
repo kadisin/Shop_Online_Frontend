@@ -38,7 +38,10 @@
             <button type="button" class="btn btn-outline-light"
             *ngIf="utilityService.isLoggedIn()">Account</button>
             <button type="button" class="btn btn-outline-light" routerLink="/cart"
-            *ngIf="utilityService.isLoggedIn()">Cart</button>
+            *ngIf="utilityService.isLoggedIn()">
+            Cart
+            <span class="badge bg-warning text-dark">{{cartItems}}</span>
+            </button>
             <button type="button" class="btn btn-outline-light" routerLink="/order"
             *ngIf="utilityService.isLoggedIn()">Orders</button>
             <button type="button" class="btn btn-outline-light"

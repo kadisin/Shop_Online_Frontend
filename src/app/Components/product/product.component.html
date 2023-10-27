@@ -29,7 +29,8 @@
 
         <div class="card-footer d-grid gap-2">
             <button class="btn btn-outline-success" type="button"
-            [disabled]="!utilityService.isLoggedIn()">
+            [disabled]="!utilityService.isLoggedIn()"
+            (click)="this.utilityService.addToCart(product)">
             Add to Cart
         <span *ngIf="!utilityService.isLoggedIn()">(Login First)</span></button>
         </div>
@@ -67,7 +68,8 @@
 
                 <div class="card-footer text-muted d-grid gap-2">
                     <button class="btn btn-outline-success" type="button"
-                    [disabled]="!utilityService.isLoggedIn()">
+                    [disabled]="!utilityService.isLoggedIn()"
+                    (click)="this.utilityService.addToCart(product)">
                     Add to Cart
                 <span *ngIf="!utilityService.isLoggedIn()">(Login First)</span></button>
                 </div>
@@ -87,12 +89,13 @@
             </div>
             <div class="col-8">
                 <div class="card-body">
-                    <h5 class="card-title title"> Title </h5>
-                    <h5 class="card-title text-success"> Final Price
-                        <span class="text-primary"> 11 products are available.</span>    
+                    <h5 class="card-title title"> {{product.title}} </h5>
+                    <h5 class="card-title text-success">
+                        {{utilityService.applyDiscount(product.price, product.offer.discount)}}
+                        <span class="text-primary">-{{product.offer.discount}}%</span>    
                     </h5>
                     <h6 class="card-subtitle text-danger text-decoration-line-through">
-                        Original Price
+                        {{product.price}}
                     </h6>
                 </div>
 
@@ -109,11 +112,11 @@
 
         <div class="overflow-hidden d-flex justify-content-center align-items-center">
             <img src="../../../assets/Images/{{product.productCategory.subCategory}}/{{product.id}}/1.jpg" alt=""
-                 class="card-img-top" OpenProductDetails [productId]="1">
+                 class="card-img-top" OpenProductDetails [productId]="product.id">
         </div>
 
         <div class="card-body">
-            <h5 class="card-title title"> Title </h5>
+            <h5 class="card-title title"> {{product.title}} </h5>
         </div>
     </div>
 </div>
