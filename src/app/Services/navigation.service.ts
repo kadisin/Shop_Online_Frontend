@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs';
-import { Category, User } from '../Components/models/models';
+import { Category, Order, Payment, PaymentMethod, User } from '../Components/models/models';
 
 @Injectable({
   providedIn: 'root'
@@ -90,6 +90,20 @@ export class NavigationService {
   getAllPreviousCarts(userid: number) {
     let url = this.baseUrl + "GetAllPreviousCartsOfUser/" + userid;
     return this.http.get(url);
+  }
+
+  getPaymentMethods() {
+    let url = this.baseUrl + "GetPaymentMethods";
+    return this.http.get<PaymentMethod[]>(url);
+  }
+
+  insertPayment(payment: Payment) {
+    return this.http.post(this.baseUrl + 'InsertPayment', payment,
+    { responseType: 'text'});
+  }
+
+  insertOrder(order: Order) {
+    return this.http.post(this.baseUrl + "InsertOrder", order);
   }
 
 }
