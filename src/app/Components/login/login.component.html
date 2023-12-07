@@ -3,7 +3,7 @@
 
     <!-- Email -->
     <div class="mb-3">
-        <label for="email" class="form-label">Email</label>
+        <label for="email" class="form-label">Email (use example or create new): user@example.com</label>
         <input type="email" class="form-control" id="email" formControlName="email">
         <div class="form-text text-danger" *ngIf="Email.errors?.['required'] && (Email.dirty || Email.touched)">
             Email is Required
@@ -15,7 +15,7 @@
 
     <!-- Password -->
     <div class="mb-3">
-        <label for="pwd" class="form-label">Password</label>
+        <label for="pwd" class="form-label">Password (use example or create new): user123</label>
         <input type="password" class="form-control" id="pwd" formControlName="pwd">
         <div class="form-text text-danger" *ngIf="PWD.errors?.['required'] && (PWD.dirty || PWD.touched)">
             Password is Required
