@@ -1,0 +1,7 @@
+{
+    "appArtifactLocation": "dist",
+    "appLocation": "/",
+    "apiLocation": "api",
+    "outputLocation": "/github/workspace"
+
+}
