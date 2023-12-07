@@ -26,6 +26,7 @@ import { OpenProductDetailsDirective } from './Components/directives/open-produc
 import { RegisterComponent } from './Components/register/register.component';
 import { RouterModule } from '@angular/router';
 import { JwtModule } from '@auth0/angular-jwt';
+import { AboutComponent } from './Components/about/about.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +44,8 @@ import { JwtModule } from '@auth0/angular-jwt';
     PageNotFoundComponent,
     OpenProductsDirective,
     OpenProductDetailsDirective,
-    RegisterComponent
+    RegisterComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

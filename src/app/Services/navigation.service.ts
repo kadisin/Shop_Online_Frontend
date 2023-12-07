@@ -7,7 +7,7 @@ import { Category, Order, Payment, PaymentMethod, User } from '../Components/mod
   providedIn: 'root'
 })
 export class NavigationService {
-  baseUrl = "https://localhost:7124/api/Shopping/";
+  baseUrl = "https://shoponlineapidemo.azurewebsites.net/api/Shopping/";
 
   constructor(private http: HttpClient) { }
 
