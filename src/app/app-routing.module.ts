@@ -10,8 +10,7 @@ import { PageNotFoundComponent } from './Components/page-not-found/page-not-foun
 import { AboutComponent } from './Components/about/about.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full'},
-  { path: 'home', component: HomeComponent}, 
+  { path: '', component: HomeComponent},
   { path: 'products', component: ProductsComponent},
   { path: 'product-details', component: ProductDetailsComponent},
   { path: 'cart', component: CartComponent},
