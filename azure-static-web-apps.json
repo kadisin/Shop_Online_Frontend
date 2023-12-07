@@ -2,5 +2,5 @@
     "appArtifactLocation": "dist/shop-online",
     "appLocation": "/",
     "apiLocation": "api",
-    "outputLocation": "/github/workspace"
+    "outputLocation": "dist/shop-online"
 }
